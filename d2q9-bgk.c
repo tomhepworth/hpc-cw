@@ -205,10 +205,16 @@ int main(int argc, char* argv[])
 
 int timestep(const t_param params, t_speed* cells, t_speed* tmp_cells, int* obstacles, float* avgVelocity)
 {
-  accelerate_flow(params, cells, obstacles);
-  (*avgVelocity) = propagate(params, cells, tmp_cells, obstacles);
-  rebound(params, cells, tmp_cells, obstacles);
+  // accelerate_flow(params, cells, obstacles);
+  // (*avgVelocity) = propagate(params, cells, tmp_cells, obstacles);
+  // rebound(params, cells, tmp_cells, obstacles);
   //(*avgVelocity) = collisionWithVelocity(params, cells, tmp_cells, obstacles);
+
+  accelerate_flow(params, cells, obstacles);
+  propagate(params, cells, tmp_cells, obstacles);
+  rebound(params, cells, tmp_cells, obstacles);
+  (*avgVelocity) = collisionWithVelocity(params, cells, tmp_cells, obstacles);
+
   return EXIT_SUCCESS;
 }
 
@@ -273,13 +279,14 @@ float propagate(const t_param params, t_speed* cells, t_speed* tmp_cells, int* o
       tmp_cells[ii + jj*params.nx].speeds[7] = cells[x_e + y_n*params.nx].speeds[7]; /* south-west */
       tmp_cells[ii + jj*params.nx].speeds[8] = cells[x_w + y_n*params.nx].speeds[8]; /* south-east */
 
-      if (!obstacles[ii + jj*params.nx]){
-        totVel += collisionWithVelocitySub(params, cells, tmp_cells, obstacles, ii, jj);
-        totCell+=1;
-      }
+      //if (!obstacles[ii + jj*params.nx]){
+      //   totVel += collisionWithVelocitySub(params, cells, tmp_cells, obstacles, ii, jj);
+      //   totCell+=1;
+      // }
     }
   }
-
+  //Temp measure
+  totCell+=1;
   return totVel / (float)totCell;
 }
 
