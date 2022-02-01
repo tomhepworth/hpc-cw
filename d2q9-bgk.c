@@ -1,4 +1,8 @@
 /*
+
+Notes to me: First step, change rebound function to swap pointers instead
+
+
 ** Code to implement a d2q9-bgk lattice boltzmann scheme.
 ** 'd2' inidates a 2-dimensional grid, and
 ** 'q9' indicates 9 velocities per grid cell.
@@ -142,7 +146,7 @@ int main(int argc, char* argv[])
   {
     paramfile = argv[1];
     obstaclefile = argv[2];
-  }
+  } 
 
   /* Total/init time starts here: initialise our data structures and load values from file */
   gettimeofday(&timstr, NULL);
