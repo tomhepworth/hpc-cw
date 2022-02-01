@@ -64,6 +64,11 @@ Notes to me: First step, change rebound function to swap pointers instead
 #define FINALSTATEFILE  "final_state.dat"
 #define AVVELSFILE      "av_vels.dat"
 
+const float c_sq = 1.f / 3.f; /* square of speed of sound */
+const float w0 = 4.f / 9.f;  /* weighting factor */
+const float w1 = 1.f / 9.f;  /* weighting factor */
+const float w2 = 1.f / 36.f; /* weighting factor */
+
 /* struct to hold the parameter values */
 typedef struct
 {
@@ -372,11 +377,6 @@ float collisionWithVelocitySub(const t_param params, t_speed* cells, t_speed* tm
 
 float collisionWithVelocity(const t_param params, t_speed* cells, t_speed* tmp_cells, int* obstacles)
 {
-  const float c_sq = 1.f / 3.f; /* square of speed of sound */
-  const float w0 = 4.f / 9.f;  /* weighting factor */
-  const float w1 = 1.f / 9.f;  /* weighting factor */
-  const float w2 = 1.f / 36.f; /* weighting factor */
-
   int totCell = 0;
   float totVel = 0.f;
 
