@@ -118,7 +118,7 @@ int finalise(const t_param* params, t_speed** cells_ptr, t_speed** tmp_cells_ptr
 float total_density(const t_param params, t_speed* cells);
 
 //Optimised to run in the loop
-float get_vel(const t_param params, t_speed* restrict cells, int* restrict obstacles, int ii, int jj);
+float get_vel(const t_param params, t_speed const*const restrict cells, int const*const restrict obstacles, int ii, int jj);
 /* compute average velocity */
 float av_velocity(const t_param params, t_speed* restrict cells, int* restrict obstacles);
 
@@ -486,7 +486,7 @@ float collisionWithVelocity(const t_param params, t_speed*const restrict cells, 
   return totVel / (float)totCell;
 }
 
-float get_vel(const t_param params, t_speed* cells, int* obstacles, int ii, int jj){
+float get_vel(const t_param params, t_speed const*const restrict cells, int const*const restrict obstacles, int ii, int jj){
   /* local density total */
   float local_density = 0.f;
 
