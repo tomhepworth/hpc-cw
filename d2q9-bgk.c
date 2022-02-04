@@ -103,7 +103,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
 */
 int timestep(const t_param params, t_speed* restrict cells, t_speed* restrict tmp_cells, int const*const restrict obstacles, float* restrict avgVelocity);
 int accelerate_flow(const t_param params, t_speed const* restrict cells, int const*const restrict obstacles);
-float propagate(const t_param params, t_speed const*const restrict cells, t_speed const* restrict tmp_cells, int const*const restrict obstacles);
+float propagate(const t_param params, t_speed const*const restrict cells, t_speed*const restrict tmp_cells, int const*const restrict obstacles);
 int rebound(const t_param params, t_speed* restrict cells, t_speed* restrict tmp_cells, int const*const restrict obstacles);
 float collisionWithVelocity(const t_param params, t_speed*const restrict cells, t_speed const*const restrict tmp_cells, int const*const restrict obstacles);
 float collisionWithVelocitySub(const t_param params, t_speed const*const restrict cells, t_speed const* restrict tmp_cells, int const*const restrict obstacles, int ii, int jj);
@@ -250,7 +250,7 @@ int accelerate_flow(const t_param params, t_speed const* restrict cells, int con
   return EXIT_SUCCESS;
 }
 
-float propagate(const t_param params, t_speed const*const restrict cells, t_speed const* restrict tmp_cells, int const*const restrict obstacles)
+float propagate(const t_param params, t_speed const*const restrict cells, t_speed*const restrict tmp_cells, int const*const restrict obstacles)
 {
   
   int totCell = 0;
