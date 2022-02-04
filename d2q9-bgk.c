@@ -105,7 +105,7 @@ int timestep(const t_param params, t_speed* restrict cells, t_speed* restrict tm
 int accelerate_flow(const t_param params, t_speed const* restrict cells, int const*const restrict obstacles);
 float propagate(const t_param params, t_speed const*const restrict cells, t_speed const* restrict tmp_cells, int const*const restrict obstacles);
 int rebound(const t_param params, t_speed* restrict cells, t_speed* restrict tmp_cells, int const*const restrict obstacles);
-float collisionWithVelocity(const t_param params, t_speed const* restrict cells, t_speed const* restrict tmp_cells, int const*const restrict obstacles);
+float collisionWithVelocity(const t_param params, t_speed*const restrict cells, t_speed const*const restrict tmp_cells, int const*const restrict obstacles);
 float collisionWithVelocitySub(const t_param params, t_speed const*const restrict cells, t_speed const* restrict tmp_cells, int const*const restrict obstacles, int ii, int jj);
 int write_values(const t_param params, t_speed* restrict cells, int const*const restrict obstacles, float* restrict av_vels);
 
@@ -382,7 +382,7 @@ float collisionWithVelocitySub(const t_param params, t_speed const*const restric
   return get_vel(params, tmp_cells, obstacles, ii, jj);
 }
 
-float collisionWithVelocity(const t_param params, t_speed const* restrict cells, t_speed const* restrict tmp_cells, int const*const restrict obstacles)
+float collisionWithVelocity(const t_param params, t_speed*const restrict cells, t_speed const*const restrict tmp_cells, int const*const restrict obstacles)
 {
   int totCell = 0;
   float totVel = 0.f;
