@@ -256,6 +256,9 @@ float propagate(const t_param params, t_speed const*const restrict cells, t_spee
   int totCell = 0;
   float totVel = 0.f;
   /* loop over _all_ cells */
+  __assume((params.ny % params.nx) == 0);
+  __assume((params.ny % 4) == 0);
+  __assume((params.nx % 4) == 0);
   for (int jj = 0; jj < params.ny; jj++)
   {
     for (int ii = 0; ii < params.nx; ii++)
@@ -391,6 +394,9 @@ float collisionWithVelocity(const t_param params, t_speed*const restrict cells, 
   ** NB the collision step is called after
   ** the propagate step and so values of interest
   ** are in the scratch-space grid */
+  __assume((params.ny % params.nx) == 0);
+  __assume((params.ny % 4) == 0);
+  __assume((params.nx % 4) == 0);
   for (int jj = 0; jj < params.ny; jj++)
   {
     for (int ii = 0; ii < params.nx; ii++)
@@ -525,6 +531,9 @@ float av_velocity(const t_param params, t_speed* cells, int* obstacles)
   /* initialise */
   tot_u = 0.f;
 
+  __assume((params.ny % params.nx) == 0);
+  __assume((params.ny % 4) == 0);
+  __assume((params.nx % 4) == 0);
   /* loop over all non-blocked cells */
   for (int jj = 0; jj < params.ny; jj++)
   {
