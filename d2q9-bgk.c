@@ -102,7 +102,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
 ** accelerate_flow(), propagate(), rebound() & collision()
 */
 int timestep(const t_param params, t_speed* restrict cells, t_speed* restrict tmp_cells, int const*const restrict obstacles, float* restrict avgVelocity);
-int accelerate_flow(const t_param params, t_speed const* restrict cells, int const*const restrict obstacles);
+int accelerate_flow(const t_param params, t_speed*const restrict cells, int const*const restrict obstacles);
 float propagate(const t_param params, t_speed const*const restrict cells, t_speed*const restrict tmp_cells, int const*const restrict obstacles);
 int rebound(const t_param params, t_speed* restrict cells, t_speed* restrict tmp_cells, int const*const restrict obstacles);
 float collisionWithVelocity(const t_param params, t_speed*const restrict cells, t_speed const*const restrict tmp_cells, int const*const restrict obstacles);
@@ -218,7 +218,7 @@ int timestep(const t_param params, t_speed* restrict cells, t_speed* restrict tm
   return EXIT_SUCCESS;
 }
 
-int accelerate_flow(const t_param params, t_speed const* restrict cells, int const*const restrict obstacles)
+int accelerate_flow(const t_param params, t_speed*const restrict cells, int const*const restrict obstacles)
 {
   /* compute weighting factors */
   float w1 = params.density * params.accel / 9.f;
