@@ -250,7 +250,7 @@ int accelerate_flow(const t_param params, t_speed* cells, int* obstacles)
   return EXIT_SUCCESS;
 }
 
-inline void propagateSwap(const t_param params, t_speed* cells, t_speed* tmp_cells, int ii, int jj, int y_n, int x_e, int y_s, int x_w){
+inline void propagateSwap(const t_param params, t_speed*const restrict cells, t_speed*const restrict tmp_cells, const int ii, const int jj, const int y_n, const int x_e, int const y_s, int const x_w){
   /* propagate densities from neighbouring cells, following
   ** appropriate directions of travel and writing into
   ** scratch space grid */
@@ -265,6 +265,32 @@ inline void propagateSwap(const t_param params, t_speed* cells, t_speed* tmp_cel
   tmp_cells[ii + jj*params.nx].speeds[8] = cells[x_w + y_n*params.nx].speeds[8]; /* south-east */
 }
 
+inline void innerPropLoop(const t_param params, t_speed* const restrict cells, t_speed*const restrict tmp_cells, const int iiLimit, const int jj){
+  int y_n = (jj + 1) % params.ny;
+  int x_e = 1;
+  int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
+  int x_w = iiLimit;
+
+  propagateSwap(params, cells, tmp_cells, 0, jj, y_n, x_e, y_s, x_w);
+  for (int ii = 1; ii < iiLimit; ii++)
+  {
+    /* determine indices of axis-direction neighbours
+    ** respecting periodic boundary conditions (wrap around) */
+    y_n = (jj + 1) % params.ny;
+    x_e += 1;
+    y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
+    x_w = ii - 1;
+
+    propagateSwap(params, cells, tmp_cells, ii, jj, y_n, x_e, y_s, x_w);
+  }
+  y_n = (jj + 1) % params.ny;
+  x_e = 0;
+  y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
+  x_w = iiLimit - 1;
+
+  propagateSwap(params, cells, tmp_cells, iiLimit, jj, y_n, x_e, y_s, x_w);
+}
+
 int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
 {
   /* loop over _all_ cells */
@@ -272,29 +298,7 @@ int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
   const int iiLimit = params.nx - 1;
   for (int jj = 0; jj < jjLimit; jj++)
   {
-    int y_n = (jj + 1) % params.ny;
-    int x_e = 1;
-    int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
-    int x_w = iiLimit;
-
-    propagateSwap(params, cells, tmp_cells, 0, jj, y_n, x_e, y_s, x_w);
-    for (int ii = 1; ii < iiLimit; ii++)
-    {
-      /* determine indices of axis-direction neighbours
-      ** respecting periodic boundary conditions (wrap around) */
-      y_n = (jj + 1) % params.ny;
-      x_e += 1;
-      y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
-      x_w = ii - 1;
-
-      propagateSwap(params, cells, tmp_cells, ii, jj, y_n, x_e, y_s, x_w);
-    }
-    y_n = (jj + 1) % params.ny;
-    x_e = 0;
-    y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
-    x_w = iiLimit - 1;
-
-    propagateSwap(params, cells, tmp_cells, iiLimit, jj, y_n, x_e, y_s, x_w);
+    innerPropLoop(params, cells, tmp_cells, iiLimit, jj);
   }
 
   return EXIT_SUCCESS;
