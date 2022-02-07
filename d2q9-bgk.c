@@ -265,30 +265,40 @@ inline void cellProp(int y_n, int x_e, int y_s, int x_w, int ii, int jj, const t
   tmp_cells[ii + jj*params.nx].speeds[8] = cells[x_w + y_n*params.nx].speeds[8]; /* south-east */
 }
 
+inline void innerPropagateLoop(const t_param params, t_speed* cells, t_speed* tmp_cells, const int iiLimit, const int y_n, const int y_s, const int jj){
+  for (int ii = 0; ii < iiLimit; ii++)
+  //TO DO, try manually creating neighbouring versions of the loop, so y_n, x_e doesn't need mod
+  //Maybe a ternary branch?
+  {
+    /* determine indices of axis-direction neighbours
+    ** respecting periodic boundary conditions (wrap around) */
+    //int x_e = (ii + 1) % params.nx;
+    int x_e = ii + 1;
+    int x_w = (ii == 0) ? (ii + params.nx - 1) : (ii - 1);
+
+    cellProp(y_n, x_e, y_s, x_w, ii, jj, params, cells, tmp_cells);
+  }
+}
+
 int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
 {
   /* loop over _all_ cells */
-  for (int jj = 0; jj < params.ny; jj++)
+  const int jjLimit = params.ny - 1;
+  const int iiLimit = params.nx - 1;
+  for (int jj = 0; jj < jjlimit; jj++)
   {
-    const int iiLimit = params.nx - 1;
-    int y_n = (jj + 1) % params.ny;
+    //int y_n = (jj + 1) % params.ny;
+    int y_n = (jj + 1);
     int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
-    for (int ii = 0; ii < iiLimit; ii++)
-    //TO DO, try manually creating neighbouring versions of the loop, so y_n, x_e doesn't need mod
-    //Maybe a ternary branch?
-    {
-      /* determine indices of axis-direction neighbours
-      ** respecting periodic boundary conditions (wrap around) */
-      //int x_e = (ii + 1) % params.nx;
-      int x_e = ii + 1;
-      int x_w = (ii == 0) ? (ii + params.nx - 1) : (ii - 1);
+    
+    innerPropagateLoop(params, cells, tmp_cells, iiLimit, y_n, y_s, jj);
 
-      cellProp(y_n, x_e, y_s, x_w, ii, jj, params, cells, tmp_cells);
-    }
     int x_e = 0;
     int x_w = params.nx - 2;
     cellProp(y_n, x_e, y_s, x_w, params.nx-1, jj, params, cells, tmp_cells);
   }
+
+  innerPropagateLoop(params, cells, tmp_cells, iiLimit, 0, params.ny - 2, params.ny - 1);
 
   return EXIT_SUCCESS;
 }
