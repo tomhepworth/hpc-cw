@@ -290,7 +290,7 @@ int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
     int x_w = params.nx - 2;
     cellProp(y_n, x_e, y_s, x_w, params.nx-1, jj, params, cells, tmp_cells);
   }
-  int y_n = 0
+  int y_n = 0;
   int y_s = jjLimit - 1;
   for (int ii = 0; ii < iiLimit; ii++)
   //TO DO, try manually creating neighbouring versions of the loop, so y_n, x_e doesn't need mod
