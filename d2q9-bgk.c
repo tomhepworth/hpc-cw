@@ -288,14 +288,21 @@ inline void innerPropLoop(const t_param params, t_speed* const restrict cells, t
 int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
 {
   /* loop over _all_ cells */
-  const int jjLimit = params.ny;
   const int iiLimit = params.nx - 1;
-  for (int jj = 0; jj < jjLimit; jj++)
+  const int jjLimit = params.ny - 1;
+  
+  int y_n = 1;
+  int y_s = jjLimit
+  innerPropLoop(params, cells, tmp_cells, iiLimit , 0, y_n, y_s);
+  for (int jj = 1; jj < jjLimit; jj++)
   {  
-    int y_n = (jj + 1) % params.ny;
-    int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
+    y_n += 1
+    y_s = jj - 1;
     innerPropLoop(params, cells, tmp_cells, iiLimit, jj, y_n, y_s);
   }
+  y_n = 0;
+  y_s = jjLimit - 1;
+  innerPropLoop(params, cells, tmp_cells, iiLimit, jjLimit , y_n, y_s);
 
   return EXIT_SUCCESS;
 }
