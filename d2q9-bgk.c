@@ -290,7 +290,7 @@ int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
       propagateSwap(params, cells, tmp_cells, ii, jj, y_n, x_e, y_s, x_w);
     }
     y_n = (jj + 1) % params.ny;
-    x_e = 0
+    x_e = 0;
     y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
     x_w = iiLimit - 1;
 
