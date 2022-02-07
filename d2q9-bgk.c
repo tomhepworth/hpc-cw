@@ -250,7 +250,7 @@ int accelerate_flow(const t_param params, t_speed* cells, int* obstacles)
   return EXIT_SUCCESS;
 }
 
-inline void propagateSwap(const t_param params, t_speed* cells, t_speed* tmp_cells, int ii, int jj, int y_n, int x_w, int y_s, int x_w){
+inline void propagateSwap(const t_param params, t_speed* cells, t_speed* tmp_cells, int ii, int jj, int y_n, int x_e, int y_s, int x_w){
   /* propagate densities from neighbouring cells, following
   ** appropriate directions of travel and writing into
   ** scratch space grid */
