@@ -292,11 +292,11 @@ int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
   const int jjLimit = params.ny - 1;
   
   int y_n = 1;
-  int y_s = jjLimit
+  int y_s = jjLimit;
   innerPropLoop(params, cells, tmp_cells, iiLimit , 0, y_n, y_s);
   for (int jj = 1; jj < jjLimit; jj++)
   {  
-    y_n += 1
+    y_n += 1;
     y_s = jj - 1;
     innerPropLoop(params, cells, tmp_cells, iiLimit, jj, y_n, y_s);
   }
