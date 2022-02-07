@@ -307,10 +307,10 @@ int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
   return EXIT_SUCCESS;
 }
 
-inline float floatSwap(t_speed* tmp_cells, int ia, int ib){
-  float sto = tmp_cells[ia];
-  tmp_cells[ia] = tmp_cells[ib];
-  tmp_cells[ib] = sto;
+inline float floatSwap(t_speed* cell, int ia, int ib){
+  float sto = cell->speeds[ia];
+  cell->speeds[ia] = cell->speeds[ib];
+  cell->speeds[ib] = sto;
 }
 int rebound(const t_param params, t_speed* cells, t_speed* tmp_cells, int* obstacles)
 {
@@ -337,10 +337,10 @@ int rebound(const t_param params, t_speed* cells, t_speed* tmp_cells, int* obsta
   // }
   for(oi i = 0; i < obsSize; i++){
     int index = obstacleIndices[i];
-    floatSwap(tmp_cells, 1, 3);
-    floatSwap(tmp_cells, 2, 4);
-    floatSwap(tmp_cells, 5, 7);
-    floatSwap(tmp_cells, 6, 8);
+    floatSwap(&tmp_cells[index], 1, 3);
+    floatSwap(&tmp_cells[index], 2, 4);
+    floatSwap(&tmp_cells[index], 5, 7);
+    floatSwap(&tmp_cells[index], 6, 8);
   }
 
   return EXIT_SUCCESS;
