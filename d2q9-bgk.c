@@ -268,9 +268,11 @@ inline void propagateSwap(const t_param params, t_speed* cells, t_speed* tmp_cel
 int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
 {
   /* loop over _all_ cells */
-  for (int jj = 0; jj < params.ny; jj++)
+  const int jjLimit = params.ny;
+  const int iiLimit = params.nx;
+  for (int jj = 0; jj < jjLimit; jj++)
   {
-    for (int ii = 0; ii < params.nx; ii++)
+    for (int ii = 0; ii < iiLimit; ii++)
     {
       /* determine indices of axis-direction neighbours
       ** respecting periodic boundary conditions (wrap around) */
