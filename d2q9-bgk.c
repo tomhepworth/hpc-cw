@@ -272,7 +272,7 @@ int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
   const int iiLimit = params.nx - 1;
   for (int jj = 0; jj < jjLimit; jj++)
   {
-    int y_n = jj + 1
+    int y_n = jj + 1;
     int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
     for (int ii = 0; ii < iiLimit; ii++)
     //TO DO, try manually creating neighbouring versions of the loop, so y_n, x_e doesn't need mod
