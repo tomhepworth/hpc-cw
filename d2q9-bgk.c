@@ -307,7 +307,7 @@ int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
   return EXIT_SUCCESS;
 }
 
-inline float floatSwap(t_speed* cell, int ia, int ib){
+inline void floatSwap(t_speed* cell, int ia, int ib){
   float sto = cell->speeds[ia];
   cell->speeds[ia] = cell->speeds[ib];
   cell->speeds[ib] = sto;
