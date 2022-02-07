@@ -268,7 +268,7 @@ inline void cellProp(int y_n, int x_e, int y_s, int x_w, int ii, int jj, const t
 int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
 {
   /* loop over _all_ cells */
-  const int jjLimit = params.ny - 1;
+  const int jjLimit = params.ny;
   for (int jj = 0; jj < jjLimit; jj++)
   {
     const int iiLimit = params.nx - 1;
