@@ -282,17 +282,17 @@ int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
     {
       /* determine indices of axis-direction neighbours
       ** respecting periodic boundary conditions (wrap around) */
-      int y_n = (jj + 1) % params.ny;
-      int x_e = ii + 1;
-      int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
-      int x_w = ii - 1;
+      y_n = (jj + 1) % params.ny;
+      x_e += 1;
+      y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
+      x_w = ii - 1;
 
       propagateSwap(params, cells, tmp_cells, ii, jj, y_n, x_e, y_s, x_w);
     }
-    int y_n = (jj + 1) % params.ny;
-    int x_e = 0
-    int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
-    int x_w = iiLimit - 1;
+    y_n = (jj + 1) % params.ny;
+    x_e = 0
+    y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
+    x_w = iiLimit - 1;
 
     propagateSwap(params, cells, tmp_cells, iiLimit, jj, y_n, x_e, y_s, x_w);
   }
