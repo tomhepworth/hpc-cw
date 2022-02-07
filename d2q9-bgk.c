@@ -265,10 +265,8 @@ inline void propagateSwap(const t_param params, t_speed*const restrict cells, t_
   tmp_cells[ii + jj*params.nx].speeds[8] = cells[x_w + y_n*params.nx].speeds[8]; /* south-east */
 }
 
-inline void innerPropLoop(const t_param params, t_speed* const restrict cells, t_speed*const restrict tmp_cells, const int iiLimit, const int jj){
-  int y_n = (jj + 1) % params.ny;
+inline void innerPropLoop(const t_param params, t_speed* const restrict cells, t_speed*const restrict tmp_cells, const int iiLimit, const int jj, const int y_n, const int y_s){
   int x_e = 1;
-  int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
   int x_w = iiLimit;
 
   propagateSwap(params, cells, tmp_cells, 0, jj, y_n, x_e, y_s, x_w);
@@ -293,8 +291,10 @@ int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
   const int jjLimit = params.ny;
   const int iiLimit = params.nx - 1;
   for (int jj = 0; jj < jjLimit; jj++)
-  {
-    innerPropLoop(params, cells, tmp_cells, iiLimit, jj);
+  {  
+    int y_n = (jj + 1) % params.ny;
+    int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
+    innerPropLoop(params, cells, tmp_cells, iiLimit, jj, y_n, y_s);
   }
 
   return EXIT_SUCCESS;
