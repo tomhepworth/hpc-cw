@@ -250,39 +250,43 @@ int accelerate_flow(const t_param params, t_speed* cells, int* obstacles)
   return EXIT_SUCCESS;
 }
 
-extern inline void propagateSwap(const t_param params, t_speed*const restrict cells, t_speed*const restrict tmp_cells, const int ii, const int jj, const int y_n, const int x_e, int const y_s, int const x_w){
+extern inline void propagateSwap(const t_param params, t_speed*const restrict cells, t_speed*const restrict tmp_cells, const int index, const int ii, const int jj, const int y_n, const int x_e, int const y_s, int const x_w){
   /* propagate densities from neighbouring cells, following
   ** appropriate directions of travel and writing into
   ** scratch space grid */
-  tmp_cells[ii + jj*params.nx].speeds[0] = cells[ii + jj*params.nx].speeds[0]; /* central cell, no movement */
-  tmp_cells[ii + jj*params.nx].speeds[1] = cells[x_w + jj*params.nx].speeds[1]; /* east */
-  tmp_cells[ii + jj*params.nx].speeds[2] = cells[ii + y_s*params.nx].speeds[2]; /* north */
-  tmp_cells[ii + jj*params.nx].speeds[3] = cells[x_e + jj*params.nx].speeds[3]; /* west */
-  tmp_cells[ii + jj*params.nx].speeds[4] = cells[ii + y_n*params.nx].speeds[4]; /* south */
-  tmp_cells[ii + jj*params.nx].speeds[5] = cells[x_w + y_s*params.nx].speeds[5]; /* north-east */
-  tmp_cells[ii + jj*params.nx].speeds[6] = cells[x_e + y_s*params.nx].speeds[6]; /* north-west */
-  tmp_cells[ii + jj*params.nx].speeds[7] = cells[x_e + y_n*params.nx].speeds[7]; /* south-west */
-  tmp_cells[ii + jj*params.nx].speeds[8] = cells[x_w + y_n*params.nx].speeds[8]; /* south-east */
+  tmp_cells[index].speeds[0] = cells[index].speeds[0]; /* central cell, no movement */
+  tmp_cells[index].speeds[1] = cells[x_w + jj*params.nx].speeds[1]; /* east */
+  tmp_cells[index].speeds[2] = cells[ii + y_s*params.nx].speeds[2]; /* north */
+  tmp_cells[index].speeds[3] = cells[x_e + jj*params.nx].speeds[3]; /* west */
+  tmp_cells[index].speeds[4] = cells[ii + y_n*params.nx].speeds[4]; /* south */
+  tmp_cells[index].speeds[5] = cells[x_w + y_s*params.nx].speeds[5]; /* north-east */
+  tmp_cells[index].speeds[6] = cells[x_e + y_s*params.nx].speeds[6]; /* north-west */
+  tmp_cells[index].speeds[7] = cells[x_e + y_n*params.nx].speeds[7]; /* south-west */
+  tmp_cells[index].speeds[8] = cells[x_w + y_n*params.nx].speeds[8]; /* south-east */
 }
 
 extern inline void innerPropLoop(const t_param params, t_speed* const restrict cells, t_speed*const restrict tmp_cells, const int iiLimit, const int jj, const int y_n, const int y_s){
   int x_e = 1;
   int x_w = iiLimit;
 
-  propagateSwap(params, cells, tmp_cells, 0, jj, y_n, x_e, y_s, x_w);
+  int index = jj * params.nx;
+
+  propagateSwap(params, cells, tmp_cells, index,  0, jj, y_n, x_e, y_s, x_w);
   for (int ii = 1; ii < iiLimit; ii++)
   {
     /* determine indices of axis-direction neighbours
     ** respecting periodic boundary conditions (wrap around) */
     x_e += 1;
     x_w = ii - 1;
+    index+=1;
 
-    propagateSwap(params, cells, tmp_cells, ii, jj, y_n, x_e, y_s, x_w);
+    propagateSwap(params, cells, tmp_cells, index, ii, jj, y_n, x_e, y_s, x_w);
   }
   x_e = 0;
   x_w = iiLimit - 1;
+  index+=1;
 
-  propagateSwap(params, cells, tmp_cells, iiLimit, jj, y_n, x_e, y_s, x_w);
+  propagateSwap(params, cells, tmp_cells, index, iiLimit, jj, y_n, x_e, y_s, x_w);
 }
 
 int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
