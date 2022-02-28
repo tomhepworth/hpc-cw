@@ -285,7 +285,7 @@ extern inline void innerPropLoop(const t_param params, t_speed* const restrict c
   propagateSwap(params, cells, tmp_cells, iiLimit, jj, y_n, x_e, y_s, x_w);
 }
 
-extern inline int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
+int propagate(const t_param params, t_speed* cells, t_speed* tmp_cells)
 {
   /* loop over _all_ cells */
   const int iiLimit = params.nx - 1;
@@ -308,7 +308,7 @@ extern inline int propagate(const t_param params, t_speed* cells, t_speed* tmp_c
 }
 
 
-extern inline int rebound(const t_param params, t_speed* cells, t_speed* tmp_cells, int* obstacles)
+int rebound(const t_param params, t_speed* cells, t_speed* tmp_cells, int* obstacles)
 {
   for(oi i = 0; i < obsSize; i++){
     int index = obstacleIndices[i];
@@ -325,7 +325,7 @@ extern inline int rebound(const t_param params, t_speed* cells, t_speed* tmp_cel
   return EXIT_SUCCESS;
 }
 
-extern inline float collision(const t_param params, t_speed* cells, t_speed* tmp_cells, int* obstacles)
+float collision(const t_param params, t_speed* cells, t_speed* tmp_cells, int* obstacles)
 {
 
   int    tot_cells = 0;  /* no. of cells used in calculation */
