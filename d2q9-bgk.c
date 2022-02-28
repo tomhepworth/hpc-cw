@@ -250,7 +250,7 @@ int accelerate_flow(const t_param params, t_speed* cells, int* obstacles)
   return EXIT_SUCCESS;
 }
 
-inline void propagateSwap(const t_param params, t_speed*const restrict cells, t_speed*const restrict tmp_cells, const int ii, const int jj, const int y_n, const int x_e, int const y_s, int const x_w){
+extern inline void propagateSwap(const t_param params, t_speed*const restrict cells, t_speed*const restrict tmp_cells, const int ii, const int jj, const int y_n, const int x_e, int const y_s, int const x_w){
   /* propagate densities from neighbouring cells, following
   ** appropriate directions of travel and writing into
   ** scratch space grid */
@@ -265,7 +265,7 @@ inline void propagateSwap(const t_param params, t_speed*const restrict cells, t_
   tmp_cells[ii + jj*params.nx].speeds[8] = cells[x_w + y_n*params.nx].speeds[8]; /* south-east */
 }
 
-inline void innerPropLoop(const t_param params, t_speed* const restrict cells, t_speed*const restrict tmp_cells, const int iiLimit, const int jj, const int y_n, const int y_s){
+extern inline void innerPropLoop(const t_param params, t_speed* const restrict cells, t_speed*const restrict tmp_cells, const int iiLimit, const int jj, const int y_n, const int y_s){
   int x_e = 1;
   int x_w = iiLimit;
 
