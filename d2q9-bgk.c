@@ -422,7 +422,7 @@ float collision(const t_param params, t_speed* cells, t_speed* tmp_cells, int* o
           cells[ii + jj*params.nx].speeds[kk] = tmp_cells[ii + jj*params.nx].speeds[kk]
                                                   + params.omega
                                                   * (d_equ[kk] - tmp_cells[ii + jj*params.nx].speeds[kk]);
-          local_density += cells[ii + jj*params.nx];
+          local_density += cells[ii + jj*params.nx].speeds[kk];
         }
 
         u_x = (tmp_cells[ii + jj*params.nx].speeds[1]
