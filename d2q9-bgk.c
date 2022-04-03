@@ -706,6 +706,8 @@ int initialise(const char* paramfile, const char* obstaclefile,
   ** a 1D array of these structs.
   */
 
+ //Take into acount the upper and lower halo area too. It doesn't rn
+
 
   MPI_DAT mpid;
   mpid.topNeighbour = rank - 1;
