@@ -131,6 +131,22 @@ float calc_reynolds(const t_param params, t_speed* cells, int* obstacles);
 void die(const char* message, const int line, const char* file);
 void usage(const char* exe);
 
+
+void runMPI(t_param* params, t_speed* cells){
+  int rowSize = sizeof(t_speed) * params->nx;
+  t_speed* topRank = &cells[0];
+  t_speed* finalRank = &cells[params->nx * (params->ny - 1)];
+  //Send down, recieve up
+  MPI_Sendrecv(finalRank, rowSize, MPI_CHAR, params->myMPI.bottomNeighbour, MPI_ANY_TAG, 
+                topRank, rowSize, MPI_CHAR, params->myMPI.topNeighbour, MPI_ANY_TAG
+                MPI_COMM, MPI_STATUS_IGNORE);
+  //Send up, recieve down
+  MPI_Sendrecv(finalRank, rowSize, MPI_CHAR, params->myMPI.bottomNeighbour, MPI_ANY_TAG, 
+                topRank, rowSize, MPI_CHAR, params->myMPI.topNeighbour, MPI_ANY_TAG
+                MPI_COMM, MPI_STATUS_IGNORE);
+
+}
+
 /*
 ** main program:
 ** initialise, timestep loop, finalise
@@ -194,7 +210,8 @@ int main(int argc, char* argv[])
   init_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
   comp_tic=init_toc;
 
-  for (int tt = 0; tt < params.maxIters; tt++)
+  int tt;
+  for (tt = 0; tt < params.maxIters-1; tt++)
   {
     av_vels[tt] = timestep(params, cells, tmp_cells, obstacles);
     //av_vels[tt] = av_velocity(params, cells, obstacles);
@@ -203,7 +220,9 @@ int main(int argc, char* argv[])
     printf("av velocity: %.12E\n", av_vels[tt]);
     printf("tot density: %.12E\n", total_density(params, cells));
 #endif
+    runMPI(params, cells);
   }
+  av_vels[tt] = timestep(params, cells, tmp_cells, obstacles);
   
   /* Compute time stops here, collate time starts*/
   gettimeofday(&timstr, NULL);
@@ -896,7 +915,7 @@ int write_values(const t_param params, t_speed* cells, int* obstacles, float* av
       }
 
       /* write to file */
-      fprintf(fp, "%d %d %.12E %.12E %.12E %.12E %d\n", ii, jj, u_x, u_y, u, pressure, obstacles[ii * params.nx + jj]);
+      fprintf(fp, "%d %d %.12E %.12E %.12E %.12E %d\n", ii, jj, u_x, u_y, u, pressure, obstacles[ii + params.nx * jj]);
     }
   }
 
