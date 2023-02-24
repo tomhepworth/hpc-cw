@@ -1,0 +1,396 @@
+Running on host compute244.bc4.acrc.priv
+Time is Fri Feb 24 16:09:18 GMT 2023
+Directory is /user/home/oq19628/hpc/hpc-cw
+Slurm job ID is 11236301
+This job runs on the following machines:
+compute244
+Intel(R) Advisor Command Line Tool
+Copyright (C) 2009-2020 Intel Corporation. All rights reserved.
+advixe: Collection started. To stop the collection, either press CTRL-C or enter from another console window: advixe-cl -r /user/home/oq19628/hpc/hpc-cw/advixe-res/e000/hs005 -command stop.
+==done==
+Reynolds number:		9.756036758423E+00
+Elapsed Init time:			0.021806 (s)
+Elapsed Compute time:			4.889076 (s)
+Elapsed Collate time:			0.000000 (s)
+Elapsed Total time:			4.910882 (s)
+advixe: Collection stopped.
+advixe: Opening result  0 %                                                    advixe: Opening result  0 % Finalizing results                                 advixe: Opening result  0 % Finalizing the result                              advixe: Opening result  0 % Clearing the database                              advixe: Opening result 10 % Clearing the database                              advixe: Opening result 10 % Loading raw data to the database                   advixe: Opening result 10 % Loading 'systemcollector-11687-compute522.bc4.acrc.advixe: Opening result 19 % Loading 'systemcollector-11687-compute522.bc4.acrc.advixe: Opening result 19 % Loading '11687-11692.0.trace' file                 
+advixe: Warning: The current result was collected on another host. For proper symbol resolution, please specify search directories for the binaries of interest using the -search-dir command line option or "Binary/Symbol Search" dialog in GUI.
+advixe: Opening result 19 % Updating precomputed scalar metrics                advixe: Opening result 21 % Updating precomputed scalar metrics                advixe: Opening result 21 % Processing profile metrics and debug information   advixe: Opening result 21 % Setting data model parameters                      advixe: Opening result 31 % Setting data model parameters                      advixe: Opening result 75 % Setting data model parameters                      advixe: Opening result 75 % done                                               
+advixe: Opening result 100 % done                                              
+advixe: Error: Data loading failed.
+advixe: Error: Cannot find directory
+
+Unknown option: --report-outputs=./advice-res/output-survey.txt
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  7.06      0.37     0.37                             timestep (d2q9-bgk.c:304 @ 402778)
+  4.20      0.59     0.22                             timestep (d2q9-bgk.c:280 @ 40264b)
+  4.20      0.81     0.22                             timestep (d2q9-bgk.c:285 @ 402656)
+  4.01      1.02     0.21                             timestep (d2q9-bgk.c:278 @ 402611)
+  3.91      1.23     0.21                             timestep (d2q9-bgk.c:276 @ 40260b)
+  3.24      1.40     0.17                             timestep (d2q9-bgk.c:333 @ 4029da)
+  3.05      1.56     0.16                             timestep (d2q9-bgk.c:309 @ 4027d4)
+  2.86      1.71     0.15                             timestep (d2q9-bgk.c:323 @ 40283a)
+  2.67      1.85     0.14                             timestep (d2q9-bgk.c:274 @ 4025dd)
+  2.48      1.98     0.13                             timestep (d2q9-bgk.c:322 @ 4027ec)
+  2.29      2.10     0.12                             timestep (d2q9-bgk.c:322 @ 4027f9)
+  2.10      2.21     0.11                             timestep (d2q9-bgk.c:281 @ 402635)
+  2.10      2.32     0.11                             timestep (d2q9-bgk.c:327 @ 4028c1)
+  1.72      2.41     0.09                             timestep (d2q9-bgk.c:273 @ 402593)
+  1.72      2.50     0.09                             timestep (d2q9-bgk.c:317 @ 4027f1)
+  1.72      2.59     0.09                             timestep (d2q9-bgk.c:259 @ 402a51)
+  1.72      2.68     0.09                             timestep (d2q9-bgk.c:309 @ 402e3c)
+  1.53      2.76     0.08                             timestep (d2q9-bgk.c:322 @ 402e46)
+  1.34      2.83     0.07                             timestep (d2q9-bgk.c:333 @ 402e58)
+  1.24      2.89     0.07                             timestep (d2q9-bgk.c:322 @ 402e5c)
+  1.15      2.95     0.06                             timestep (d2q9-bgk.c:279 @ 402627)
+  1.15      3.01     0.06                             timestep (d2q9-bgk.c:328 @ 402946)
+  1.15      3.07     0.06                             timestep (d2q9-bgk.c:304 @ 402dd6)
+  1.15      3.13     0.06                             timestep (d2q9-bgk.c:326 @ 4028cf)
+  1.15      3.19     0.06                             timestep (d2q9-bgk.c:318 @ 402914)
+  1.05      3.25     0.06                             timestep (d2q9-bgk.c:330 @ 402941)
+  0.95      3.30     0.05                             timestep (d2q9-bgk.c:304 @ 402769)
+  0.95      3.35     0.05                             timestep (d2q9-bgk.c:324 @ 40285c)
+  0.86      3.39     0.05                             timestep (d2q9-bgk.c:301 @ 402749)
+  0.76      3.43     0.04                             timestep (d2q9-bgk.c:312 @ 4027de)
+  0.76      3.47     0.04                             timestep (d2q9-bgk.c:323 @ 402858)
+  0.76      3.51     0.04                             timestep (d2q9-bgk.c:324 @ 402879)
+  0.76      3.55     0.04                             timestep (d2q9-bgk.c:301 @ 402da6)
+  0.67      3.59     0.04                             timestep (d2q9-bgk.c:276 @ 4025b1)
+  0.67      3.62     0.04                             timestep (d2q9-bgk.c:277 @ 402618)
+  0.67      3.66     0.04                             timestep (d2q9-bgk.c:328 @ 402965)
+  0.67      3.69     0.04                             timestep (d2q9-bgk.c:330 @ 4029b5)
+  0.67      3.73     0.04                             timestep (d2q9-bgk.c:330 @ 4029d5)
+  0.67      3.76     0.04                             timestep (d2q9-bgk.c:277 @ 402cfc)
+  0.57      3.79     0.03                             timestep (d2q9-bgk.c:313 @ 402823)
+  0.57      3.82     0.03                             timestep (d2q9-bgk.c:319 @ 402956)
+  0.57      3.85     0.03                             timestep (d2q9-bgk.c:329 @ 4029ba)
+  0.57      3.88     0.03                             accelerate_flow (d2q9-bgk.c:357 @ 4015f8)
+  0.57      3.91     0.03                             timestep (d2q9-bgk.c:276 @ 4025d4)
+  0.57      3.94     0.03                             timestep (d2q9-bgk.c:317 @ 4028de)
+  0.57      3.97     0.03                             timestep (d2q9-bgk.c:323 @ 402e7c)
+  0.48      4.00     0.03                             timestep (d2q9-bgk.c:273 @ 4025a8)
+  0.48      4.02     0.03                             timestep (d2q9-bgk.c:322 @ 40281c)
+  0.48      4.05     0.03                             timestep (d2q9-bgk.c:326 @ 40288c)
+  0.48      4.07     0.03                             timestep (d2q9-bgk.c:325 @ 402890)
+  0.48      4.10     0.03                             timestep (d2q9-bgk.c:333 @ 402e98)
+  0.48      4.12     0.03                             timestep (d2q9-bgk.c:301 @ 402700)
+  0.38      4.14     0.02                             timestep (d2q9-bgk.c:273 @ 401a0c)
+  0.38      4.16     0.02                             timestep (d2q9-bgk.c:274 @ 4025cc)
+  0.38      4.18     0.02                             timestep (d2q9-bgk.c:276 @ 4025fb)
+  0.38      4.20     0.02                             timestep (d2q9-bgk.c:301 @ 402765)
+  0.38      4.22     0.02                             timestep (d2q9-bgk.c:325 @ 4028b4)
+  0.38      4.24     0.02                             timestep (d2q9-bgk.c:328 @ 402929)
+  0.38      4.26     0.02                             timestep (d2q9-bgk.c:329 @ 40296a)
+  0.38      4.28     0.02                             timestep (d2q9-bgk.c:259 @ 402a40)
+  0.38      4.30     0.02                             timestep (d2q9-bgk.c:285 @ 402d29)
+  0.38      4.32     0.02                             timestep (d2q9-bgk.c:304 @ 402e01)
+  0.38      4.34     0.02                             timestep (d2q9-bgk.c:317 @ 402ee9)
+  0.38      4.36     0.02                             timestep (d2q9-bgk.c:327 @ 402f5a)
+  0.29      4.38     0.02                             timestep (d2q9-bgk.c:313 @ 40280e)
+  0.29      4.39     0.02                             timestep (d2q9-bgk.c:326 @ 4028af)
+  0.29      4.41     0.02                             timestep (d2q9-bgk.c:329 @ 4029b0)
+  0.29      4.42     0.02                             timestep (d2q9-bgk.c:330 @ 4029bf)
+  0.29      4.44     0.02                             timestep (d2q9-bgk.c:329 @ 4029c4)
+  0.29      4.45     0.02                             timestep (d2q9-bgk.c:323 @ 402ea1)
+  0.29      4.47     0.02                             timestep (d2q9-bgk.c:275 @ 4025f4)
+  0.29      4.48     0.02                             timestep (d2q9-bgk.c:301 @ 402731)
+  0.29      4.50     0.02                             timestep (d2q9-bgk.c:317 @ 4028b8)
+  0.29      4.51     0.02                             timestep (d2q9-bgk.c:318 @ 402905)
+  0.29      4.53     0.02                             timestep (d2q9-bgk.c:329 @ 4029d0)
+  0.29      4.54     0.02                             timestep (d2q9-bgk.c:301 @ 402dc5)
+  0.19      4.55     0.01                             timestep (d2q9-bgk.c:278 @ 401a37)
+  0.19      4.56     0.01                             timestep (d2q9-bgk.c:274 @ 401a43)
+  0.19      4.57     0.01                             timestep (d2q9-bgk.c:277 @ 401a93)
+  0.19      4.58     0.01                             timestep (d2q9-bgk.c:281 @ 401ad0)
+  0.19      4.59     0.01                             timestep (d2q9-bgk.c:259 @ 401db5)
+  0.19      4.60     0.01                             timestep (d2q9-bgk.c:273 @ 401dcd)
+  0.19      4.61     0.01                             timestep (d2q9-bgk.c:280 @ 4023a1)
+  0.19      4.62     0.01                             timestep (d2q9-bgk.c:292 @ 402460)
+  0.19      4.63     0.01                             timestep (d2q9-bgk.c:259 @ 4024c3)
+  0.19      4.64     0.01                             timestep (d2q9-bgk.c:236 @ 4024ff)
+  0.19      4.65     0.01                             timestep (d2q9-bgk.c:259 @ 40256d)
+  0.19      4.66     0.01                             timestep (d2q9-bgk.c:273 @ 40257f)
+  0.19      4.67     0.01                             timestep (d2q9-bgk.c:279 @ 4025ba)
+  0.19      4.68     0.01                             timestep (d2q9-bgk.c:279 @ 402603)
+  0.19      4.69     0.01                             timestep (d2q9-bgk.c:280 @ 40263b)
+  0.19      4.70     0.01                             timestep (d2q9-bgk.c:296 @ 4026da)
+  0.19      4.71     0.01                             timestep (d2q9-bgk.c:285 @ 4026df)
+  0.19      4.72     0.01                             timestep (d2q9-bgk.c:304 @ 40275b)
+  0.19      4.73     0.01                             timestep (d2q9-bgk.c:306 @ 4027ab)
+  0.19      4.74     0.01                             timestep (d2q9-bgk.c:306 @ 4027cf)
+  0.19      4.75     0.01                             timestep (d2q9-bgk.c:314 @ 402860)
+  0.19      4.76     0.01                             timestep (d2q9-bgk.c:324 @ 402865)
+  0.19      4.77     0.01                             timestep (d2q9-bgk.c:325 @ 402884)
+  0.19      4.78     0.01                             timestep (d2q9-bgk.c:324 @ 402888)
+  0.19      4.79     0.01                             timestep (d2q9-bgk.c:325 @ 4028a9)
+  0.19      4.80     0.01                             timestep (d2q9-bgk.c:327 @ 40290f)
+  0.19      4.81     0.01                             timestep (d2q9-bgk.c:319 @ 402986)
+  0.19      4.82     0.01                             timestep (d2q9-bgk.c:320 @ 4029a6)
+  0.19      4.83     0.01                             timestep (d2q9-bgk.c:330 @ 4029ca)
+  0.19      4.84     0.01                             timestep (d2q9-bgk.c:259 @ 402a2b)
+  0.19      4.85     0.01                             timestep (d2q9-bgk.c:236 @ 402ae2)
+  0.19      4.86     0.01                             timestep (d2q9-bgk.c:273 @ 402b82)
+  0.19      4.87     0.01                             timestep (d2q9-bgk.c:285 @ 402ba2)
+  0.19      4.88     0.01                             timestep (d2q9-bgk.c:296 @ 402d86)
+  0.19      4.89     0.01                             timestep (d2q9-bgk.c:304 @ 402dc9)
+  0.19      4.90     0.01                             timestep (d2q9-bgk.c:301 @ 402dd1)
+  0.19      4.91     0.01                             timestep (d2q9-bgk.c:304 @ 402df5)
+  0.19      4.92     0.01                             timestep (d2q9-bgk.c:325 @ 402df9)
+  0.19      4.93     0.01                             timestep (d2q9-bgk.c:306 @ 402e18)
+  0.19      4.94     0.01                             timestep (d2q9-bgk.c:306 @ 402e2a)
+  0.19      4.95     0.01                             timestep (d2q9-bgk.c:322 @ 402e38)
+  0.19      4.96     0.01                             timestep (d2q9-bgk.c:325 @ 402f02)
+  0.19      4.97     0.01                             timestep (d2q9-bgk.c:327 @ 402f2f)
+  0.19      4.98     0.01                             timestep (d2q9-bgk.c:330 @ 402f43)
+  0.19      4.99     0.01                             timestep (d2q9-bgk.c:330 @ 402fac)
+  0.19      5.00     0.01                             timestep (d2q9-bgk.c:328 @ 402fbd)
+  0.19      5.01     0.01                             timestep (d2q9-bgk.c:329 @ 402fc5)
+  0.19      5.02     0.01                             timestep (d2q9-bgk.c:259 @ 402fda)
+  0.19      5.03     0.01                             timestep (d2q9-bgk.c:281 @ 403aa0)
+  0.19      5.04     0.01                             timestep (d2q9-bgk.c:292 @ 403b0d)
+  0.10      5.05     0.01                             timestep (d2q9-bgk.c:273 @ 4019ee)
+  0.10      5.05     0.01                             timestep (d2q9-bgk.c:265 @ 4019f1)
+  0.10      5.06     0.01                             timestep (d2q9-bgk.c:280 @ 401aca)
+  0.10      5.06     0.01                             timestep (d2q9-bgk.c:285 @ 401ad8)
+  0.10      5.07     0.01                             timestep (d2q9-bgk.c:281 @ 401add)
+  0.10      5.07     0.01                             timestep (d2q9-bgk.c:285 @ 401ae9)
+  0.10      5.08     0.01                             timestep (d2q9-bgk.c:292 @ 401b1e)
+  0.10      5.08     0.01                             timestep (d2q9-bgk.c:294 @ 401b25)
+  0.10      5.09     0.01                             timestep (d2q9-bgk.c:280 @ 40250c)
+  0.10      5.09     0.01                             timestep (d2q9-bgk.c:276 @ 402511)
+  0.10      5.10     0.01                             timestep (d2q9-bgk.c:279 @ 4025ef)
+  0.10      5.10     0.01                             timestep (d2q9-bgk.c:335 @ 4026f7)
+  0.10      5.11     0.01                             timestep (d2q9-bgk.c:335 @ 40272d)
+  0.10      5.11     0.01                             timestep (d2q9-bgk.c:335 @ 402740)
+  0.10      5.12     0.01                             timestep (d2q9-bgk.c:327 @ 402900)
+  0.10      5.12     0.01                             timestep (d2q9-bgk.c:327 @ 40291e)
+  0.10      5.13     0.01                             timestep (d2q9-bgk.c:318 @ 402924)
+  0.10      5.13     0.01                             timestep (d2q9-bgk.c:329 @ 40293c)
+  0.10      5.14     0.01                             timestep (d2q9-bgk.c:320 @ 402960)
+  0.10      5.14     0.01                             timestep (d2q9-bgk.c:319 @ 40297c)
+  0.10      5.15     0.01                             timestep (d2q9-bgk.c:320 @ 402981)
+  0.10      5.15     0.01                             timestep (d2q9-bgk.c:330 @ 402998)
+  0.10      5.16     0.01                             timestep (d2q9-bgk.c:319 @ 4029a1)
+  0.10      5.16     0.01                             timestep (d2q9-bgk.c:281 @ 402b51)
+  0.10      5.17     0.01                             timestep (d2q9-bgk.c:276 @ 402b59)
+  0.10      5.17     0.01                             timestep (d2q9-bgk.c:281 @ 402cb1)
+  0.10      5.18     0.01                             timestep (d2q9-bgk.c:268 @ 402cb9)
+  0.10      5.18     0.01                             timestep (d2q9-bgk.c:275 @ 402cc4)
+  0.10      5.19     0.01                             timestep (d2q9-bgk.c:276 @ 402ccc)
+  0.10      5.19     0.01                             timestep (d2q9-bgk.c:273 @ 402cf6)
+  0.10      5.20     0.01                             timestep (d2q9-bgk.c:304 @ 402dc1)
+  0.10      5.20     0.01                             timestep (d2q9-bgk.c:323 @ 402e53)
+  0.10      5.21     0.01                             timestep (d2q9-bgk.c:318 @ 402f1b)
+  0.10      5.21     0.01                             timestep (d2q9-bgk.c:326 @ 402f20)
+  0.10      5.22     0.01                             timestep (d2q9-bgk.c:327 @ 402f6d)
+  0.10      5.22     0.01                             timestep (d2q9-bgk.c:328 @ 402f74)
+  0.10      5.23     0.01                             timestep (d2q9-bgk.c:328 @ 402f94)
+  0.10      5.23     0.01                             timestep (d2q9-bgk.c:330 @ 402f99)
+  0.10      5.24     0.01                             timestep (d2q9-bgk.c:274 @ 403a41)
+  0.10      5.24     0.01                             timestep (d2q9-bgk.c:273 @ 403a46)
+  0.00      5.24     0.00        1     0.00     0.00  initialise (d2q9-bgk.c:420 @ 406ea0)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2016 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.19% of 5.24 seconds
+
+index % time    self  children    called     name
+                0.00    0.00       1/1           main (d2q9-bgk.c:159 @ 4010c4) [1013]
+[167]    0.0    0.00    0.00       1         initialise (d2q9-bgk.c:420 @ 406ea0) [167]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2016 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [43] accelerate_flow (d2q9-bgk.c:357 @ 4015f8) [95] timestep (d2q9-bgk.c:306 @ 4027ab) [106] timestep (d2q9-bgk.c:259 @ 402a2b)
+ [167] initialise (d2q9-bgk.c:420 @ 406ea0) [96] timestep (d2q9-bgk.c:306 @ 4027cf) [60] timestep (d2q9-bgk.c:259 @ 402a40)
+ [127] timestep (d2q9-bgk.c:273 @ 4019ee) [7] timestep (d2q9-bgk.c:309 @ 4027d4) [16] timestep (d2q9-bgk.c:259 @ 402a51)
+ [128] timestep (d2q9-bgk.c:265 @ 4019f1) [30] timestep (d2q9-bgk.c:312 @ 4027de) [107] timestep (d2q9-bgk.c:236 @ 402ae2)
+  [53] timestep (d2q9-bgk.c:273 @ 401a0c) [10] timestep (d2q9-bgk.c:322 @ 4027ec) [150] timestep (d2q9-bgk.c:281 @ 402b51)
+  [77] timestep (d2q9-bgk.c:278 @ 401a37) [15] timestep (d2q9-bgk.c:317 @ 4027f1) [151] timestep (d2q9-bgk.c:276 @ 402b59)
+  [78] timestep (d2q9-bgk.c:274 @ 401a43) [11] timestep (d2q9-bgk.c:322 @ 4027f9) [108] timestep (d2q9-bgk.c:273 @ 402b82)
+  [79] timestep (d2q9-bgk.c:277 @ 401a93) [65] timestep (d2q9-bgk.c:313 @ 40280e) [109] timestep (d2q9-bgk.c:285 @ 402ba2)
+ [129] timestep (d2q9-bgk.c:280 @ 401aca) [48] timestep (d2q9-bgk.c:322 @ 40281c) [152] timestep (d2q9-bgk.c:281 @ 402cb1)
+  [80] timestep (d2q9-bgk.c:281 @ 401ad0) [40] timestep (d2q9-bgk.c:313 @ 402823) [153] timestep (d2q9-bgk.c:268 @ 402cb9)
+ [130] timestep (d2q9-bgk.c:285 @ 401ad8) [8] timestep (d2q9-bgk.c:323 @ 40283a) [154] timestep (d2q9-bgk.c:275 @ 402cc4)
+ [131] timestep (d2q9-bgk.c:281 @ 401add) [31] timestep (d2q9-bgk.c:323 @ 402858) [155] timestep (d2q9-bgk.c:276 @ 402ccc)
+ [132] timestep (d2q9-bgk.c:285 @ 401ae9) [28] timestep (d2q9-bgk.c:324 @ 40285c) [156] timestep (d2q9-bgk.c:273 @ 402cf6)
+ [133] timestep (d2q9-bgk.c:292 @ 401b1e) [97] timestep (d2q9-bgk.c:314 @ 402860) [39] timestep (d2q9-bgk.c:277 @ 402cfc)
+ [134] timestep (d2q9-bgk.c:294 @ 401b25) [98] timestep (d2q9-bgk.c:324 @ 402865) [61] timestep (d2q9-bgk.c:285 @ 402d29)
+  [81] timestep (d2q9-bgk.c:259 @ 401db5) [32] timestep (d2q9-bgk.c:324 @ 402879) [110] timestep (d2q9-bgk.c:296 @ 402d86)
+  [82] timestep (d2q9-bgk.c:273 @ 401dcd) [99] timestep (d2q9-bgk.c:325 @ 402884) [33] timestep (d2q9-bgk.c:301 @ 402da6)
+  [83] timestep (d2q9-bgk.c:280 @ 4023a1) [100] timestep (d2q9-bgk.c:324 @ 402888) [157] timestep (d2q9-bgk.c:304 @ 402dc1)
+  [84] timestep (d2q9-bgk.c:292 @ 402460) [49] timestep (d2q9-bgk.c:326 @ 40288c) [76] timestep (d2q9-bgk.c:301 @ 402dc5)
+  [85] timestep (d2q9-bgk.c:259 @ 4024c3) [50] timestep (d2q9-bgk.c:325 @ 402890) [111] timestep (d2q9-bgk.c:304 @ 402dc9)
+  [86] timestep (d2q9-bgk.c:236 @ 4024ff) [101] timestep (d2q9-bgk.c:325 @ 4028a9) [112] timestep (d2q9-bgk.c:301 @ 402dd1)
+ [135] timestep (d2q9-bgk.c:280 @ 40250c) [66] timestep (d2q9-bgk.c:326 @ 4028af) [23] timestep (d2q9-bgk.c:304 @ 402dd6)
+ [136] timestep (d2q9-bgk.c:276 @ 402511) [57] timestep (d2q9-bgk.c:325 @ 4028b4) [113] timestep (d2q9-bgk.c:304 @ 402df5)
+  [87] timestep (d2q9-bgk.c:259 @ 40256d) [73] timestep (d2q9-bgk.c:317 @ 4028b8) [114] timestep (d2q9-bgk.c:325 @ 402df9)
+  [88] timestep (d2q9-bgk.c:273 @ 40257f) [13] timestep (d2q9-bgk.c:327 @ 4028c1) [62] timestep (d2q9-bgk.c:304 @ 402e01)
+  [14] timestep (d2q9-bgk.c:273 @ 402593) [24] timestep (d2q9-bgk.c:326 @ 4028cf) [115] timestep (d2q9-bgk.c:306 @ 402e18)
+  [47] timestep (d2q9-bgk.c:273 @ 4025a8) [45] timestep (d2q9-bgk.c:317 @ 4028de) [116] timestep (d2q9-bgk.c:306 @ 402e2a)
+  [34] timestep (d2q9-bgk.c:276 @ 4025b1) [141] timestep (d2q9-bgk.c:327 @ 402900) [117] timestep (d2q9-bgk.c:322 @ 402e38)
+  [89] timestep (d2q9-bgk.c:279 @ 4025ba) [74] timestep (d2q9-bgk.c:318 @ 402905) [17] timestep (d2q9-bgk.c:309 @ 402e3c)
+  [54] timestep (d2q9-bgk.c:274 @ 4025cc) [102] timestep (d2q9-bgk.c:327 @ 40290f) [18] timestep (d2q9-bgk.c:322 @ 402e46)
+  [44] timestep (d2q9-bgk.c:276 @ 4025d4) [25] timestep (d2q9-bgk.c:318 @ 402914) [158] timestep (d2q9-bgk.c:323 @ 402e53)
+   [9] timestep (d2q9-bgk.c:274 @ 4025dd) [142] timestep (d2q9-bgk.c:327 @ 40291e) [19] timestep (d2q9-bgk.c:333 @ 402e58)
+ [137] timestep (d2q9-bgk.c:279 @ 4025ef) [143] timestep (d2q9-bgk.c:318 @ 402924) [20] timestep (d2q9-bgk.c:322 @ 402e5c)
+  [71] timestep (d2q9-bgk.c:275 @ 4025f4) [58] timestep (d2q9-bgk.c:328 @ 402929) [46] timestep (d2q9-bgk.c:323 @ 402e7c)
+  [55] timestep (d2q9-bgk.c:276 @ 4025fb) [144] timestep (d2q9-bgk.c:329 @ 40293c) [51] timestep (d2q9-bgk.c:333 @ 402e98)
+  [90] timestep (d2q9-bgk.c:279 @ 402603) [26] timestep (d2q9-bgk.c:330 @ 402941) [70] timestep (d2q9-bgk.c:323 @ 402ea1)
+   [5] timestep (d2q9-bgk.c:276 @ 40260b) [22] timestep (d2q9-bgk.c:328 @ 402946) [63] timestep (d2q9-bgk.c:317 @ 402ee9)
+   [4] timestep (d2q9-bgk.c:278 @ 402611) [41] timestep (d2q9-bgk.c:319 @ 402956) [118] timestep (d2q9-bgk.c:325 @ 402f02)
+  [35] timestep (d2q9-bgk.c:277 @ 402618) [145] timestep (d2q9-bgk.c:320 @ 402960) [159] timestep (d2q9-bgk.c:318 @ 402f1b)
+  [21] timestep (d2q9-bgk.c:279 @ 402627) [36] timestep (d2q9-bgk.c:328 @ 402965) [160] timestep (d2q9-bgk.c:326 @ 402f20)
+  [12] timestep (d2q9-bgk.c:281 @ 402635) [59] timestep (d2q9-bgk.c:329 @ 40296a) [119] timestep (d2q9-bgk.c:327 @ 402f2f)
+  [91] timestep (d2q9-bgk.c:280 @ 40263b) [146] timestep (d2q9-bgk.c:319 @ 40297c) [120] timestep (d2q9-bgk.c:330 @ 402f43)
+   [2] timestep (d2q9-bgk.c:280 @ 40264b) [147] timestep (d2q9-bgk.c:320 @ 402981) [64] timestep (d2q9-bgk.c:327 @ 402f5a)
+   [3] timestep (d2q9-bgk.c:285 @ 402656) [103] timestep (d2q9-bgk.c:319 @ 402986) [161] timestep (d2q9-bgk.c:327 @ 402f6d)
+  [92] timestep (d2q9-bgk.c:296 @ 4026da) [148] timestep (d2q9-bgk.c:330 @ 402998) [162] timestep (d2q9-bgk.c:328 @ 402f74)
+  [93] timestep (d2q9-bgk.c:285 @ 4026df) [149] timestep (d2q9-bgk.c:319 @ 4029a1) [163] timestep (d2q9-bgk.c:328 @ 402f94)
+ [138] timestep (d2q9-bgk.c:335 @ 4026f7) [104] timestep (d2q9-bgk.c:320 @ 4029a6) [164] timestep (d2q9-bgk.c:330 @ 402f99)
+  [52] timestep (d2q9-bgk.c:301 @ 402700) [67] timestep (d2q9-bgk.c:329 @ 4029b0) [121] timestep (d2q9-bgk.c:330 @ 402fac)
+ [139] timestep (d2q9-bgk.c:335 @ 40272d) [37] timestep (d2q9-bgk.c:330 @ 4029b5) [122] timestep (d2q9-bgk.c:328 @ 402fbd)
+  [72] timestep (d2q9-bgk.c:301 @ 402731) [42] timestep (d2q9-bgk.c:329 @ 4029ba) [123] timestep (d2q9-bgk.c:329 @ 402fc5)
+ [140] timestep (d2q9-bgk.c:335 @ 402740) [68] timestep (d2q9-bgk.c:330 @ 4029bf) [124] timestep (d2q9-bgk.c:259 @ 402fda)
+  [29] timestep (d2q9-bgk.c:301 @ 402749) [69] timestep (d2q9-bgk.c:329 @ 4029c4) [165] timestep (d2q9-bgk.c:274 @ 403a41)
+  [94] timestep (d2q9-bgk.c:304 @ 40275b) [105] timestep (d2q9-bgk.c:330 @ 4029ca) [166] timestep (d2q9-bgk.c:273 @ 403a46)
+  [56] timestep (d2q9-bgk.c:301 @ 402765) [75] timestep (d2q9-bgk.c:329 @ 4029d0) [125] timestep (d2q9-bgk.c:281 @ 403aa0)
+  [27] timestep (d2q9-bgk.c:304 @ 402769) [38] timestep (d2q9-bgk.c:330 @ 4029d5) [126] timestep (d2q9-bgk.c:292 @ 403b0d)
+   [1] timestep (d2q9-bgk.c:304 @ 402778) [6] timestep (d2q9-bgk.c:333 @ 4029da)
+python check/check.py --ref-av-vels-file=check/128x128.av_vels.dat --ref-final-state-file=check/128x128.final_state.dat --av-vels-file=./av_vels.dat --final-state-file=./final_state.dat
+Total difference in av_vels : 1.866617146720E-01
+Biggest difference (at step 39838) : 1.032473862000E-05
+  1.317621767521E-02 vs. 1.318654241383E-02 = 0.078%
+
+Total difference in final_state : 3.708066795429E-01
+Biggest difference (at coord (127,125)) : -6.565625469000E-05
+  3.339898958802E-02 vs. 3.333333333333E-02 = -0.2%
+
+Both tests passed!
