@@ -2,8 +2,8 @@
 
 EXE=d2q9-bgk
 
-CC=gcc
-CFLAGS= -std=c99 -pg -Wall -O3 -fno-unsafe-math-optimizations 
+CC=icc
+CFLAGS= -std=c99 -Wall -fopenmp -Ofast -xAVX2 
 LIBS = -lm
 
 FINAL_STATE_FILE=./final_state.dat
@@ -19,7 +19,7 @@ $(EXE): $(EXE).c
 check:
 	python check/check.py --ref-av-vels-file=$(REF_AV_VELS_FILE) --ref-final-state-file=$(REF_FINAL_STATE_FILE) --av-vels-file=$(AV_VELS_FILE) --final-state-file=$(FINAL_STATE_FILE)
 
-.PHONY: all check clean
+.PHONY: all check clean 
 
 clean:
 	rm -f $(EXE)
